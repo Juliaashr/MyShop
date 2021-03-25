@@ -16,16 +16,24 @@ namespace Shop
         {
             Cart = new Product<T>[size];
 
-            Console.WriteLine($"Введите {size} товаров для покупателя:");
+            Console.WriteLine($"Введите {size} номера товаров для покупателя:");
 
             for (int i = 0; i < size; i++)
             {
-                string inPut = Console.ReadLine();
-                for (int j = 0; j < offeredProducts.Length; j++)
-                {
-                    if (inPut as dynamic == offeredProducts[j].Category)
-                        Cart[i] = new Product<T>(inPut as dynamic);
+                try {
+                    int inPut = int.Parse(Console.ReadLine());
+
+                    for (int j = 0; j < offeredProducts.Length; j++)
+                    {
+                        if (inPut == j+1)
+                            Cart[i] = new Product<T>(offeredProducts[j].Category);
+                    }
                 }
+                catch(FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
             }
 
             ProductSorter.Sort<T>(Cart, Product<T>.CompareCategory);
