@@ -22,4 +22,4 @@ In detail about project classes:
 
 ## Authors
 
-* **Julia Zhirikova** under the direction of **Alex Puzanov**
+* **Julia Zhirikova** under the direction of [**Alex Puzanov**](https://github.com/Popuzikan) 
