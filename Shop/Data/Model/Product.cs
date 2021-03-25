@@ -32,7 +32,7 @@ namespace Shop
         public static bool CompareCategory(Product<T> p1, Product<T> p2)
         {
             bool help = false;
-            if (string.Compare(p1.Category.ToString(), p2.Category.ToString()) == -1)
+            if (string.Compare(p1.Category?.ToString(), p2.Category?.ToString()) == -1)
                 help = true;
             return help;
         }
