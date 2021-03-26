@@ -10,16 +10,11 @@ namespace Shop
     {
         public R Name { get; set; }
 
-        public Guid Code { get; set; }
+        public Guid Code { get; set; } = Guid.NewGuid();
 
         public Carts<T> Cart { get; set; }
 
-        public Customer(R name, Carts<T> cart)
-        {
-            Name = name;
-            Code = Guid.NewGuid();
-            Cart = cart;
-        }
+        public Customer(R name, Carts<T> cart) => (Name, Cart) = (name, cart);
 
         public override string ToString() => $"Имя: {Name.ToString()} - код: {Code}";
 
