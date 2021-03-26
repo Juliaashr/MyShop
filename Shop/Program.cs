@@ -10,9 +10,6 @@ namespace Shop
     {
         static void Main(string[] args)
         {
-            string[] names = new string[10] {"Светлана","Валентин","Никита","Юлия","Анна",
-                                             "Алина","Вероника","Степан","Григорий","Петр" };
-
             Product<string>[] offeredProducts = {new Product<string>("продукты"), new Product<string>("товары для детей"),
                                                  new Product<string>("бытовые товары"), new Product<string>("товары для авто"),
                                                  new Product<string>("зоотовары"), new Product<string>("косметика"),
@@ -27,15 +24,22 @@ namespace Shop
  
             IDictionary<Guid, Customer<string, string>> customers = new Dictionary<Guid, Customer<string, string>>(10);
 
-            for (int j = 0; j < names.Length; j++)
+            for (int j = 0; j < 10; j++)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Введите количесво желаемых товаров для покупателя {names[j]}:");
+
+                Console.WriteLine("Введите имя:");
+                string name = Console.ReadLine();
+
+                if (name == "")
+                    break;
+
+                Console.WriteLine($"Введите количесво желаемых товаров для покупателя {name}:");
 
                 try
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    var c = new Customer<string, string>(names[j], new Carts<string>(int.Parse(Console.ReadLine()), offeredProducts));
+                    var c = new Customer<string, string>(name, new Carts<string>(int.Parse(Console.ReadLine()), offeredProducts));
 
                     customers[c.Code] = c;
                 }
