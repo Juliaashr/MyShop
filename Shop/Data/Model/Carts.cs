@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Shop
 {
-    delegate void MyDelegate<T>(Product<T>[] products);
-
     public class Carts<T> : ICart<T>
     {
         public Product<T>[] Cart { get; set; }
