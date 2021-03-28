@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerInfoEventArgs.cs" />
     <Compile Include="Data\Model\Carts.cs" />
     <Compile Include="Data\Model\Customer.cs" />
     <Compile Include="Find.cs" />

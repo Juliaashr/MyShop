@@ -8,9 +8,9 @@ namespace Shop
 {
     class Help
     {
-        private static void Customer_Handler<R>(R name)
+        private static void Customer_Handler<R>(object sender, CustomerInfoEventArgs<R> e)
         {
-            Console.WriteLine($"Добро пожаловать в наш магазин, {name}!");
+            Console.WriteLine($"Добро пожаловать в наш магазин, {e.Name}!");
         }
 
         public static void Service(IDictionary<Guid, Customer<string, string>> customers)

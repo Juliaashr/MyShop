@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Shop
 {
-    public delegate void CustomerEventHandler<R>(R name);
     class Program
     {
-        private static void Customer_Handler<R>(R name)
+        private static void Customer_Handler<R>(object sender, CustomerInfoEventArgs<R> e)
         {
-            Console.WriteLine($"Добро пожаловать в наш магазин, {name}!");
+            Console.WriteLine($"Добро пожаловать в наш магазин, {e.Name}!");
         }
 
             static void Main(string[] args)

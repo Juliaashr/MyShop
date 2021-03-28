@@ -8,7 +8,7 @@ namespace Shop
 {
     public class Customer<R, T> : ICustomer<R>, IEquatable<Customer<R, T>>
     {
-        public event CustomerEventHandler<R> WelcomeCustomer = null;
+        public event EventHandler<CustomerInfoEventArgs<R>> WelcomeCustomer = null;
 
         public R Name { get; set; }
 
@@ -22,7 +22,16 @@ namespace Shop
 
         public void CustomerEvent(R name)
         {
-            WelcomeCustomer?.Invoke(name);
+            RaiseNewCustomerInfo(name);
+        }
+
+        protected virtual void RaiseNewCustomerInfo(R name)
+        {
+            EventHandler<CustomerInfoEventArgs<R>> newCustomerlnfo = WelcomeCustomer;
+            if (newCustomerlnfo != null)
+            {
+                newCustomerlnfo(this, new CustomerInfoEventArgs<R>(name));
+            }
         }
 
         public void Welcome()
