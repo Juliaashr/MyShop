@@ -20,7 +20,7 @@ namespace Shop
 
         public override int GetHashCode() => Category.GetHashCode();
 
-        public static bool CompareCategory(Product<T> first, Product<T> second) => (string.Compare(first.Category.ToString(), second.Category.ToString()) == -1) ? true : false;
+        public static bool CompareCategory(Product<T> first, Product<T> second) => (string.Compare(first?.Category.ToString(), second?.Category.ToString()) == -1) ? true : false;
 
     }
 }

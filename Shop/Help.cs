@@ -8,6 +8,11 @@ namespace Shop
 {
     class Help
     {
+        private static void Customer_Handler<R>(R name)
+        {
+            Console.WriteLine($"Добро пожаловать в наш магазин, {name}!");
+        }
+
         public static void Service(IDictionary<Guid, Customer<string, string>> customers)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -25,6 +30,10 @@ namespace Shop
 
                         var newC = new Customer<string, string>(Console.ReadLine(), new Carts<string>(int.Parse(Console.ReadLine())));
                         customers.Add(newC.Code, newC);
+
+                        newC.WelcomeCustomer += Customer_Handler<string>;
+                        newC.Welcome();
+
                         Help.Service(customers);
 
                         break;

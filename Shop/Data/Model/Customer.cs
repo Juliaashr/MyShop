@@ -8,6 +8,8 @@ namespace Shop
 {
     public class Customer<R, T> : ICustomer<R>, IEquatable<Customer<R, T>>
     {
+        public event CustomerEventHandler<R> WelcomeCustomer = null;
+
         public R Name { get; set; }
 
         public Guid Code { get; set; } = Guid.NewGuid();
@@ -17,6 +19,16 @@ namespace Shop
         public Customer(R name, Carts<T> cart) => (Name, Cart) = (name, cart);
 
         public override string ToString() => $"Имя: {Name.ToString()} - код: {Code}";
+
+        public void CustomerEvent(R name)
+        {
+            WelcomeCustomer?.Invoke(name);
+        }
+
+        public void Welcome()
+        {
+            CustomerEvent(Name);
+        }
 
         public void ShowCart()
         {

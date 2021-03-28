@@ -5,3 +5,10 @@ D:\shop\Shop\obj\Debug\Shop.csprojAssemblyReference.cache
 D:\shop\Shop\obj\Debug\Shop.csproj.CoreCompileInputs.cache
 D:\shop\Shop\obj\Debug\Shop.exe
 D:\shop\Shop\obj\Debug\Shop.pdb
+C:\Users\admin\Source\Repos\MyShop\Shop\bin\Debug\Shop.exe.config
+C:\Users\admin\Source\Repos\MyShop\Shop\bin\Debug\Shop.exe
+C:\Users\admin\Source\Repos\MyShop\Shop\bin\Debug\Shop.pdb
+C:\Users\admin\Source\Repos\MyShop\Shop\obj\Debug\Shop.csprojAssemblyReference.cache
+C:\Users\admin\Source\Repos\MyShop\Shop\obj\Debug\Shop.csproj.CoreCompileInputs.cache
+C:\Users\admin\Source\Repos\MyShop\Shop\obj\Debug\Shop.exe
+C:\Users\admin\Source\Repos\MyShop\Shop\obj\Debug\Shop.pdb
