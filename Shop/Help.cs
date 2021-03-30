@@ -17,7 +17,7 @@ namespace Shop
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-                Console.WriteLine("Введите 1, чтобы добавить покупателя; введите 2, чтобы просмотреть список покупателей; введите 3, чтобы начать поиск; 4 - чтобы выйти:");
+                Console.WriteLine("Введите 1, чтобы добавить покупателя; введите 2, чтобы просмотреть список покупателей; введите 3, чтобы начать поиск; любую другую клавишу, чтобы выйти:");
 
                 string helpVal = Console.ReadLine();
 
@@ -32,7 +32,7 @@ namespace Shop
                         customers.Add(newC.Code, newC);
 
                         newC.WelcomeCustomer += Customer_Handler<string>;
-                        newC.Welcome();
+                        newC.CustomerEvent(newC.Name);
 
                         Help.Service(customers);
 
@@ -56,7 +56,7 @@ namespace Shop
 
                         Help.Service(customers);
                         break;
-                    case "4":
+                    default:
                         Console.WriteLine("Выполнен выход!");
                         break;
 

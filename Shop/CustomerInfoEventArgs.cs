@@ -8,10 +8,7 @@ namespace Shop
 {
     public class CustomerInfoEventArgs<R> : EventArgs
     {
-        public CustomerInfoEventArgs(R name)
-        {
-            this.Name = name;
-        }
+        public CustomerInfoEventArgs(R name) => Name = name;
         public R Name { get; private set; }
     }
 }

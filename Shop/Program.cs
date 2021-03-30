@@ -47,7 +47,7 @@ namespace Shop
                     var c = new Customer<string, string>(name, new Carts<string>(int.Parse(Console.ReadLine()), offeredProducts));
 
                     c.WelcomeCustomer += Customer_Handler<string>;
-                    c.Welcome();
+                    c.CustomerEvent(name);
 
                     customers[c.Code] = c;
                 }

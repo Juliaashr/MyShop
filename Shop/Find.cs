@@ -20,7 +20,6 @@ namespace Shop
 
                     Console.WriteLine($"{code.ToString()}:{customer.ToString()}");
                     customer.ShowCart();
-
                 }
                 else
                     Console.WriteLine("Данного покупателя нет в скписке.");

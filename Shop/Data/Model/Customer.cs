@@ -25,26 +25,12 @@ namespace Shop
             RaiseNewCustomerInfo(name);
         }
 
-        protected virtual void RaiseNewCustomerInfo(R name)
-        {
-            EventHandler<CustomerInfoEventArgs<R>> newCustomerlnfo = WelcomeCustomer;
-            if (newCustomerlnfo != null)
-            {
-                newCustomerlnfo(this, new CustomerInfoEventArgs<R>(name));
-            }
-        }
-
-        public void Welcome()
-        {
-            CustomerEvent(Name);
-        }
+        protected virtual void RaiseNewCustomerInfo(R name) => WelcomeCustomer?.Invoke(this, new CustomerInfoEventArgs<R>(name));
 
         public void ShowCart()
         {
-            for (int i = 0; i < Cart.Cart.Length; i++)
-            {
-                Console.Write($"{ Cart.Cart[i]}, ");
-            }
+            Cart.CartInfo();
+
             Console.WriteLine();
         }
 

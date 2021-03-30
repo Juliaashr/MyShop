@@ -14,28 +14,43 @@ namespace Shop
         {
             Cart = new Product<T>[size];
 
-            Console.WriteLine($"Введите {size} номера товаров для покупателя:");
+            CartInitialise(offeredProducts);
+        }
 
-            for (int i = 0; i < size; i++)
+        public void CartInitialise(params Product<T>[] offeredProducts)
+        {
+            Console.WriteLine($"Введите {Cart.Length} номера товаров для покупателя:");
+
+            for (int i = 0; i < Cart.Length; i++)
             {
-                try {
+                try
+                {
                     int inPut = int.Parse(Console.ReadLine());
 
-                    for (int j = 0; j < offeredProducts.Length; j++)
+                    int n = 1;
+
+                    foreach (var item in offeredProducts)
                     {
-                        if (inPut == j+1)
-                            Cart[i] = new Product<T>(offeredProducts[j].Category);
+                        Cart[i] = (inPut == n) ? item : Cart[i];
+                        n++;
                     }
                 }
-                catch(FormatException e)
+                catch (FormatException e)
                 {
                     Console.WriteLine(e.Message);
                 }
-                
+
             }
 
             ProductSorter.Sort<T>(Cart, Product<T>.CompareCategory);
+        }
 
+        public void CartInfo()
+        {
+            foreach (var item in Cart)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
 
     }
