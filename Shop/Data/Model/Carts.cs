@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop
 {
+    delegate void Sort<T> (Product<T>[] products, Func<Product<T>, Product<T>, bool> comparison);
     public class Carts<T> : ICart<T>
     {
         public Product<T>[] Cart { get; set; }
@@ -42,7 +43,8 @@ namespace Shop
 
             }
 
-            ProductSorter.Sort<T>(Cart, Product<T>.CompareCategory);
+            Sort<T> sort = ProductSorter.Sort<T>;
+            sort.Invoke(Cart, Product<T>.CompareCategory);
         }
 
         public void CartInfo()
