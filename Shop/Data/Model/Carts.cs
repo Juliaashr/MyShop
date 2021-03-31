@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop
 {
-    delegate void Sort<T> (Product<T>[] products, Func<Product<T>, Product<T>, bool> comparison);
+    delegate void Sort<T> (IProduct<T>[] products, Func<IProduct<T>, IProduct<T>, bool> comparison);
     public class Carts<T> : ICart<T>
     {
         public Product<T>[] Cart { get; set; }

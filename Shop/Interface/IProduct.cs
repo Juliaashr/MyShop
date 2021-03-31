@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop
 {
-    interface IProduct<T>
+    public interface IProduct<T>
     {
         T Category { get; set; }
     }

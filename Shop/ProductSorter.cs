@@ -8,9 +8,10 @@ namespace Shop
 {
     class ProductSorter
     {
-        static public void Sort<T>(Product<T>[] products, Func<Product<T>, Product<T>, bool> comparison)
+        static public void Sort<T>(IProduct<T>[] products, Func<IProduct<T>, IProduct<T>, bool> comparison)
         {
             bool swapped = true;
+            IProduct<T> temp;
             do
             {
                 swapped = false;
@@ -18,7 +19,7 @@ namespace Shop
                 {
                     if (comparison(products[i + 1], products[i]))
                     {
-                        Product<T> temp = products[i];
+                        temp = products[i];
                         products[i] = products[i + 1];
                         products[i + 1] = temp;
                         swapped = true;
